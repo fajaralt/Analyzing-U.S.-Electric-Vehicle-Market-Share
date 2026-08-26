@@ -1,3 +1,9 @@
+-- Trend & Insights
+-- Im going to do analyze 3 points of this :
+	-- 1. Highlight which alternative fuels (biodiesel, ethanol, hydrogen) have meaningful presence vs. niche usage
+		-- Create indicator meaningfull presence with percentage market for each alternatives fuels must be >= 0.01
+
+
 -- 1. Highlight which alternative fuels (biodiesel, ethanol, hydrogen) have meaningful presence vs. niche usage
 
 SELECT *
@@ -19,7 +25,7 @@ SELECT
 FROM
 	vehicle_data_2;
 
--- 2. Create Table with CTE
+-- Create pct_marekt for each alternatives fuels with CTE
 
 WITH alt_fuels_cte AS(
 	SELECT 
@@ -55,4 +61,15 @@ SELECT
 	END AS Status_
 FROM 
 	alt_fuels_cte;
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
     
