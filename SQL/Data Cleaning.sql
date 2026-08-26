@@ -1,3 +1,11 @@
+-- In this session im gonna do Data Cleaning 
+-- I already removes duplicat using Excel and create the table 
+-- This session i worked on : 
+	-- 1. Create DataBase and import dataset 
+	-- 2. Create the staging table 
+  -- 3. Adding new column and modifiy name column 
+
+
 -- 1. Create DataBase and import dataset 
 
 CREATE DATABASE vehicle_project;
