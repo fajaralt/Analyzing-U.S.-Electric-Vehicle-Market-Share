@@ -1,4 +1,21 @@
+-- Market Share Analysis 
+-- Im going to do analyze 3 points of this : 
+	-- 1. Calculate the percentage of EVs, PHEVs, HEVs, and Gasoline vehicles for each state.
+    -- 2. Identify the top 5 states with the highest EV adoption rate (EVs as a % of all registered vehicles).
+    -- 3. Compare EV adoption in California vs. other large states (e.g., Texas, Florida, New York).
+
+
 -- 1. Calculate the percentage of EVs, PHEVs, HEVs, and Gasoline vehicles for each state.
+
+SELECT 
+	State,
+    EV,
+    PHEV,
+    HEV,
+    Gasoline
+FROM vehicle_data_2;
+
+-- Create Total Vehicle with cte and Calculate the percentage
 
 WITH Total_for_States AS (
 	SELECT 
@@ -26,6 +43,8 @@ FROM
 SELECT *
 FROM Total_for_States;
 
+
+
 -- 2. Identify the top 5 states with the highest EV adoption rate (EVs as a % of all registered vehicles).
 
 SELECT 
@@ -38,6 +57,8 @@ FROM
 ORDER BY 
 	EV_Adoption_Rate_pct DESC
 LIMIT 5;
+
+
 
 -- 3. Compare EV adoption in California vs. other large states (e.g., Texas, Florida, New York).
 
