@@ -109,3 +109,6 @@ These recommendations represent an assessment of potential infrastructure demand
 - Microsoft Excel — Initial data preparation
 - MySQL — Data cleaning, transformation, aggregation, and analysis
 - Tableau — Data visualization and dashboard development
+
+## View Tableau Dashboard 
+https://public.tableau.com/views/USElectricVehicleMarketShareAnalysis_17877439879670/DashboardUSElectricVehicle?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
