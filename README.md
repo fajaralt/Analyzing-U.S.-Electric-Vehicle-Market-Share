@@ -1,36 +1,111 @@
-# Executive Report: U.S. Alternative Fuel Vehicles & EV Infrastructure Planning
+# U.S. Electric Vehicle Market Share Analysis
 
-## 1. Vehicle Composition by State (EVs, PHEVs, HEVs, Gasoline)
+An exploratory data analysis project analyzing registered vehicles across U.S. states by fuel type, with a focus on EV adoption, alternative fuel market share, and implications for EV infrastructure planning.
 
-* **Market Breakdown:** Traditional gasoline-powered vehicles still dominate the largest share of registered vehicles nationwide. However, Battery Electric Vehicles (EVs) and Hybrid Electric Vehicles (PHEVs & HEVs) are heavily concentrated in states with strict zero-emission policies.
-* **Energy Transition:** Hybrid Electric Vehicles (HEVs) serve as the primary bridge technology for consumers before fully transitioning to pure EVs across most states.
+## Business Questions
 
----
+- What is the vehicle market composition across U.S. states?
+- Which states have the highest EV adoption rates?
+- How does EV adoption differ between California and other large states?
+- Which alternative fuels have meaningful market presence versus niche usage?
+- What do EV adoption and vehicle volume imply for infrastructure planning?
 
-## 2. State EV Adoption Rates (Leaders vs. Lagging States)
+## Dataset
 
-* **Top Adoption Leaders:** **California (CA)** leads the nation by a wide margin in both total volume and market adoption rate, followed by supporting states like Washington (WA) and Oregon (OR).
-* **Comparison (California vs. Large States):** California shows a massive adoption gap compared to other large states such as Texas (TX), Florida (FL), and New York (NY). Although TX and FL have large total vehicle populations, their EV adoption percentages still lag significantly behind CA.
+The dataset contains registered vehicle counts by U.S. state across multiple fuel categories, including:
 
----
+- Electric Vehicles (EV)
+- Plug-In Hybrid Electric Vehicles (PHEV)
+- Hybrid Electric Vehicles (HEV)
+- Gasoline
+- Diesel
+- Biodiesel
+- Ethanol/Flex (E85)
+- Compressed Natural Gas (CNG)
+- Propane
+- Hydrogen
+- Methanol
 
-## 3. Alternative Fuel Market Share (Significant vs. Niche)
+## Analysis Workflow
 
-* **Meaningful Presence ($\ge$ 0.1% Market Share):**
-  * **Ethanol / E85 (~7.09%):** Holds the largest market share in the alternative fuel category due to an established distribution network.
-  * **Biodiesel (~0.98%):** Maintains a measurable and stable adoption rate, primarily driven by commercial and heavy-duty fleets.
-* **Niche Usage (< 0.1% Market Share):**
-  * **Hydrogen (~0.0059%):** Adoption remains extremely limited (*niche*) and concentrated in specific corridors due to the high cost of refueling station infrastructure.
+### 1. Data Cleaning
 
----
+Using MySQL to:
 
-## 4. Strategic Recommendations for Infrastructure Prioritization
+- Create a staging table
+- Standardize column names
+- Add a `Total_Vehicle` column
+- Calculate total registered vehicles across all fuel categories
+- Check data structure and data types
 
-Based on adoption velocity and infrastructure support gaps, public **EV Charging** infrastructure investment should be prioritized in the following **3 States**:
+### 2. Market Share Analysis
 
-1. **Texas (TX):**
-   * **Data Justification:** Has a massive volume of registered vehicles and rapid economic growth, yet its current EV adoption percentage remains low relative to its potential. Expanding charging corridors will reduce range anxiety and accelerate transition from gasoline to EVs.
-2. **Florida (FL):**
-   * **Data Justification:** Demonstrates significant EV adoption growth in urban areas, but the ratio of public EV charging stations per registered EV is currently falling behind demand.
-3. **New York (NY):**
-   * **Data Justification:** Has aggressive zero-emission regulatory targets and high population density. Focusing on commuter and interstate charging infrastructure will effectively close the support gap.
+Calculated the percentage share of:
+
+- EV
+- PHEV
+- HEV
+- Gasoline
+
+for each state.
+
+EV adoption rate was calculated as:
+
+**EV Adoption Rate = EV / Total Registered Vehicles × 100**
+
+The analysis also compared EV adoption between California, Texas, Florida, and New York.
+
+### 3. Alternative Fuel Analysis
+
+Compared the market presence of:
+
+- Ethanol/Flex (E85)
+- Biodiesel
+- Hydrogen
+
+Alternative fuels were classified as:
+
+- **Meaningful Presence:** ≥ 0.01% market share
+- **Niche Usage:** < 0.01% market share
+
+### 4. Visualization
+
+Built interactive Tableau visualizations to present:
+
+- EV adoption by state
+- Top states by EV adoption rate
+- Total vehicle volume by state
+- Alternative fuel market share
+
+## Key Findings
+
+- Gasoline remains the dominant vehicle fuel category.
+- California has the highest EV adoption rate among the states analyzed and also has the largest absolute EV volume.
+- States such as Texas and Florida have large vehicle markets and substantial EV volumes, but lower EV adoption rates than California.
+- Ethanol/Flex (E85) has a meaningful presence compared with other alternative fuels.
+- Biodiesel has a smaller but measurable market presence.
+- Hydrogen remains a niche category in the dataset.
+
+## Infrastructure Planning Implications
+
+EV adoption rate alone does not determine infrastructure priorities.
+
+The analysis considers both:
+
+- **EV Adoption Rate** — indicates the level of EV penetration.
+- **EV Volume** — indicates the number of EVs that may require charging infrastructure.
+- **Total Vehicle Volume** — provides context on the size of the overall vehicle market.
+
+Based on these indicators:
+
+- **California:** An established EV market with high adoption and large EV volume, supporting continued infrastructure expansion.
+- **Florida:** A large vehicle market with substantial EV volume and further room for EV adoption growth.
+- **Texas:** A very large vehicle market with significant EV volume but relatively lower EV penetration, representing potential future infrastructure demand.
+
+These recommendations represent an assessment of potential infrastructure demand based on vehicle registration data. The dataset does not contain charging-station or charging-port data, so actual infrastructure gaps cannot be directly measured.
+
+## Tools
+
+- Microsoft Excel — Initial data preparation
+- MySQL — Data cleaning, transformation, aggregation, and analysis
+- Tableau — Data visualization and dashboard development
